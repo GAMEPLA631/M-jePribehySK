@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nočná Mora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+        }
+        .wix-style-btn {
+            background-color: #38bdf8;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .wix-style-btn:hover {
+            background-color: #0ea5e9;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+        .wix-header {
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .wix-section {
+            background-color: #262626;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-left-color: #38bdf8;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Štýl pre modal/message box */
+        .modal {
+            display: none; /* Skryté predvolene */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #262626;
+            padding: 24px;
+            border-radius: 1.5rem;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Navigácia -->
+    <header class="wix-header sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.533 9.467a1 1 0 11-1.066-1.622 1 1 0 011.066 1.622zm7.934 0a1 1 0 11-1.066-1.622 1 1 0 011.066 1.622zm-3.8 6.534a1 1 0 10-1.066-1.623 1 1 0 001.066 1.623z" clip-rule="evenodd" />
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                </svg>
+                <h1 class="text-2xl font-bold text-white">Nočná Mora</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Príbehy</a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">O nás</a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">Kontakt</a>
+            </div>
+            <button class="md:hidden text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hlavná sekcia s príbehom -->
+    <main class="container mx-auto px-6 py-16">
+        <section class="text-center">
+            <h2 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                Prečítaj si príbehy celé a oficiálne.
+            </h2>
+        </section>
+
+        <!-- Sekcia príbehu a ovládanie TTS -->
+        <section class="mt-20 wix-section p-8 md:p-12 max-w-4xl mx-auto">
+            <h3 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-8 text-center">Zakliaty Dom</h3>
+
+            <!-- Ovládanie TTS s tlačidlami -->
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                <select id="voice-select" class="bg-gray-800 text-gray-200 border border-gray-700 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">Predvolený hlas</option>
+                    <!-- Hlasy budú načítané dynamicky -->
+                </select>
+                <button id="play-btn" class="wix-style-btn">Čítať</button>
+                <button id="stop-btn" class="wix-style-btn bg-gray-600 hover:bg-gray-700">Zastaviť</button>
+                <div id="loading-spinner" class="spinner hidden"></div>
+            </div>
+
+            <!-- Príbeh - teraz bez klikateľnosti -->
+            <div id="story-text" class="text-lg leading-relaxed text-gray-400 space-y-6">
+                <p>Starý dom na konci ulice stál ticho a hrozivo. Jeho okná, slepé oči, hľadeli na svet s akousi prázdnou, chladnou nenávisťou. Všetci v mestečku o ňom hovorili šeptom. Hovorili o rodine, ktorá tam žila pred sto rokmi a zmizla bez stopy. A hovorili o polnoci.</p>
+                <p>Mladý novinár, Martin, sa rozhodol, že odhalí pravdu. V ten večer si zobral kameru a statív a ticho sa priplazil k domu. Keď vošiel, vzduch bol ťažký a zatuchnutý. Prach sa vznášal v lúčoch Mesiaca, ktoré prenikali cez špinavé okná, a Martin mal pocit, akoby sa každý kút domu na neho pozeral.</p>
+                <p>Presne o pol desiatej sa usadil v obývačke, kde ešte stále stál starý prachom pokrytý klavír. Nastavil kameru a čakal. Čas plynul pomaly. Každá minúta bola ako večnosť, a Martin si začínal myslieť, že ide o obyčajnú mestskú legendu.</p>
+                <p>Keď hodiny odbili presne polnoc, nastalo absolútne ticho. Aj vietor vonku akoby prestal fúkať. A potom to začalo.</p>
+                <p>Spočiatku to bol len slabý zvuk, podobný škrabaniu nechtov po drevenej podlahe, vychádzajúci z poschodia. Martinovi naskočila husia koža. Zvuk sa zosilňoval a zosilňoval, až to začalo znieť ako desivé, rytmické škrabanie, akoby sa tam niekto snažil dostať von.</p>
+                <p>Potom sa ozval hlasný, prenikavý plač malého dieťaťa, ktorý sa ozýval z každej miestnosti naraz. Martinovi sa srdce rozbúchalo ako splašené. Plač bol plný smútku a zúfalstva, no v jednom momente sa zmenil na šialený smiech, ktorý rezonoval celým domom.</p>
+                <p>Keď sa Martin vystrašene pozrel na hodiny, ručičky sa náhle začali točiť dozadu. Jeho srdce sa zastavilo. Z ničoho nič sa pred ním objavila postava ženy, celá v bielej farbe, s prázdnymi, čiernymi očami. Otvorila ústa a vydala zo seba mrazivý, hrôzostrašný zvuk, ktorý nebol ani plač, ani smiech, ale niečo oveľa horšie.</p>
+                <p>Martin schmatol kameru a utekal preč, bez toho, aby sa obzrel. Keď vybehol z dverí, pocítil na svojom chrbte chladný dotyk.</p>
+                <p>Druhý deň našli kameru a statív na verande starého domu. Martin sa nikdy nenašiel. Odvtedy vraj, ak sa v noci prechádzate okolo domu, môžete počuť jeho zúfalý výkrik, ktorý sa zmiešava s desivým smiechom a plačom. A ak sa odvážite pozrieť na hodiny, zistíte, že čas sa v nich zastavil presne na polnoc.</p>
+            </div>
+        </section>
+        
+        <!-- Sekcia s kontaktom na autora -->
+        <section class="mt-20 wix-section p-8 md:p-12 max-w-4xl mx-auto">
+            <h3 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-8 text-center">Kontakt na autora</h3>
+            <div class="text-lg leading-relaxed text-gray-400 space-y-4 text-center">
+                <p><strong>Autor:</strong> Kristián Stareček</p>
+                <p><strong>Spoločnosť:</strong> GAMEPLA631</p>
+                <p><strong>Telefón:</strong> 0951632704</p>
+                <p><strong>Email:</strong> <a href="mailto:kralhororoviek@gmail.com" class="text-blue-400 hover:underline">kralhororoviek@gmail.com</a></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pätička -->
+    <footer class="bg-gray-900 text-gray-200 py-12 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <h4 class="font-bold mb-4">Nočná Mora</h4>
+            <p class="text-gray-400">Vaša platforma pre tie najtemnejšie príbehy.</p>
+            <div class="mt-6 text-gray-500">
+                &copy; 2024 Nočná Mora. Všetky práva vyhradené.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal pre chybové hlásenia -->
+    <div id="error-modal" class="modal">
+        <div class="modal-content">
+            <p class="text-xl font-bold text-red-400 mb-4">Ups, niečo sa pokazilo!</p>
+            <p class="text-gray-300">Pri prevode textu na reč nastala chyba, pretože váš prehliadač nepodporuje túto funkciu. Skúste iný prehliadač.</p>
+            <button id="close-modal-btn" class="wix-style-btn mt-6">Zavrieť</button>
+        </div>
+    </div>
+
+    <script>
+        const storyTextContainer = document.getElementById('story-text');
+        const voiceSelect = document.getElementById('voice-select');
+        const playButton = document.getElementById('play-btn');
+        const stopButton = document.getElementById('stop-btn');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const errorModal = document.getElementById('error-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        let isProcessing = false;
+
+        const synth = window.speechSynthesis;
+        let voices = [];
+
+        // Funkcia na načítanie hlasov a vyplnenie selectu
+        function populateVoiceList() {
+            voices = synth.getVoices();
+            voiceSelect.innerHTML = '<option value="">Predvolený hlas</option>';
+            voices.forEach(voice => {
+                // Zobrazí všetky slovenské hlasy a dva špecifické anglické
+                if (voice.lang.startsWith('sk-') || voice.lang === 'en-US' || voice.lang === 'en-GB') {
+                     const option = document.createElement('option');
+                    option.textContent = `${voice.name} (${voice.lang})`;
+                    option.value = voice.name;
+                    voiceSelect.appendChild(option);
+                }
+            });
+        }
+        
+        if (synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = populateVoiceList;
+        }
+        
+        populateVoiceList();
+
+        closeModalBtn.addEventListener('click', () => {
+            errorModal.style.display = 'none';
+        });
+
+        // Prehrávanie celého príbehu po kliknutí na tlačidlo "Čítať"
+        playButton.addEventListener('click', () => {
+            // Zastavenie akéhokoľvek predchádzajúceho čítania, aby sa predišlo chybám "interrupted"
+            synth.cancel();
+
+            if (isProcessing || !synth || synth.speaking) {
+                return;
+            }
+            
+            isProcessing = true;
+            loadingSpinner.classList.remove('hidden');
+
+            const fullStoryText = storyTextContainer.textContent.replace(/\n\s+/g, ' ').trim();
+            const utterance = new SpeechSynthesisUtterance(fullStoryText);
+
+            const selectedVoiceName = voiceSelect.value;
+            if (selectedVoiceName) {
+                const selectedVoice = voices.find(voice => voice.name === selectedVoiceName);
+                if (selectedVoice) {
+                    utterance.voice = selectedVoice;
+                }
+            }
+
+            utterance.onend = () => {
+                isProcessing = false;
+                loadingSpinner.classList.add('hidden');
+            };
+
+            utterance.onerror = (e) => {
+                console.error('SpeechSynthesis error:', e.error);
+                errorModal.style.display = 'flex';
+                isProcessing = false;
+                loadingSpinner.classList.add('hidden');
+            };
+            
+            synth.speak(utterance);
+        });
+
+        // Zastavenie čítania po kliknutí na tlačidlo "Zastaviť"
+        stopButton.addEventListener('click', () => {
+            synth.cancel();
+            isProcessing = false;
+            loadingSpinner.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
