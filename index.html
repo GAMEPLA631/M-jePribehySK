@@ -103,23 +103,23 @@
             </h2>
         </section>
 
-        <!-- Sekcia príbehu a ovládanie TTS -->
+        <!-- Sekcia príbehu a ovládanie TTS pre prvý príbeh -->
         <section class="mt-20 wix-section p-8 md:p-12 max-w-4xl mx-auto">
             <h3 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-8 text-center">Zakliaty Dom</h3>
 
             <!-- Ovládanie TTS s tlačidlami -->
             <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-                <select id="voice-select" class="bg-gray-800 text-gray-200 border border-gray-700 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <select id="voice-select-1" class="bg-gray-800 text-gray-200 border border-gray-700 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
                     <option value="">Predvolený hlas</option>
                     <!-- Hlasy budú načítané dynamicky -->
                 </select>
-                <button id="play-btn" class="wix-style-btn">Čítať</button>
-                <button id="stop-btn" class="wix-style-btn bg-gray-600 hover:bg-gray-700">Zastaviť</button>
-                <div id="loading-spinner" class="spinner hidden"></div>
+                <button id="play-btn-1" class="wix-style-btn">Čítať</button>
+                <button id="stop-btn-1" class="wix-style-btn bg-gray-600 hover:bg-gray-700">Zastaviť</button>
+                <div id="loading-spinner-1" class="spinner hidden"></div>
             </div>
 
             <!-- Príbeh - teraz bez klikateľnosti -->
-            <div id="story-text" class="text-lg leading-relaxed text-gray-400 space-y-6">
+            <div id="story-text-1" class="text-lg leading-relaxed text-gray-400 space-y-6">
                 <p>Starý dom na konci ulice stál ticho a hrozivo. Jeho okná, slepé oči, hľadeli na svet s akousi prázdnou, chladnou nenávisťou. Všetci v mestečku o ňom hovorili šeptom. Hovorili o rodine, ktorá tam žila pred sto rokmi a zmizla bez stopy. A hovorili o polnoci.</p>
                 <p>Mladý novinár, Martin, sa rozhodol, že odhalí pravdu. V ten večer si zobral kameru a statív a ticho sa priplazil k domu. Keď vošiel, vzduch bol ťažký a zatuchnutý. Prach sa vznášal v lúčoch Mesiaca, ktoré prenikali cez špinavé okná, a Martin mal pocit, akoby sa každý kút domu na neho pozeral.</p>
                 <p>Presne o pol desiatej sa usadil v obývačke, kde ešte stále stál starý prachom pokrytý klavír. Nastavil kameru a čakal. Čas plynul pomaly. Každá minúta bola ako večnosť, a Martin si začínal myslieť, že ide o obyčajnú mestskú legendu.</p>
@@ -129,6 +129,57 @@
                 <p>Keď sa Martin vystrašene pozrel na hodiny, ručičky sa náhle začali točiť dozadu. Jeho srdce sa zastavilo. Z ničoho nič sa pred ním objavila postava ženy, celá v bielej farbe, s prázdnymi, čiernymi očami. Otvorila ústa a vydala zo seba mrazivý, hrôzostrašný zvuk, ktorý nebol ani plač, ani smiech, ale niečo oveľa horšie.</p>
                 <p>Martin schmatol kameru a utekal preč, bez toho, aby sa obzrel. Keď vybehol z dverí, pocítil na svojom chrbte chladný dotyk.</p>
                 <p>Druhý deň našli kameru a statív na verande starého domu. Martin sa nikdy nenašiel. Odvtedy vraj, ak sa v noci prechádzate okolo domu, môžete počuť jeho zúfalý výkrik, ktorý sa zmiešava s desivým smiechom a plačom. A ak sa odvážite pozrieť na hodiny, zistíte, že čas sa v nich zastavil presne na polnoc.</p>
+            </div>
+        </section>
+
+        <!-- Nová sekcia s druhým príbehom -->
+        <section class="mt-20 wix-section p-8 md:p-12 max-w-4xl mx-auto">
+            <h3 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-8 text-center">Zrkadlo v predsieni</h3>
+
+            <!-- Ovládanie TTS s tlačidlami -->
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                <select id="voice-select-2" class="bg-gray-800 text-gray-200 border border-gray-700 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">Predvolený hlas</option>
+                    <!-- Hlasy budú načítané dynamicky -->
+                </select>
+                <button id="play-btn-2" class="wix-style-btn">Čítať</button>
+                <button id="stop-btn-2" class="wix-style-btn bg-gray-600 hover:bg-gray-700">Zastaviť</button>
+                <div id="loading-spinner-2" class="spinner hidden"></div>
+            </div>
+
+            <!-- Druhý príbeh -->
+            <div id="story-text-2" class="text-lg leading-relaxed text-gray-400 space-y-6">
+                <p>V halloweenskom tichu, keď sa jeseň menila na chladnú, temnú noc, sa stará Anna chystala zhasnúť posledné svetlo vo svojom útulnom domčeku.</p>
+                <p>Vonku svietil spln. No jeho svetlo sa strácalo v prelietavých mrakoch. A tiene stromov, tancovali vo vetre ako živé strašidlá.</p>
+                <p>Už celé roky ju v túto noc prepadal zvláštny, nepríjemný pocit. No nikdy ho nevedela pomenovať.</p>
+                <p>Keď prechádzala okolo veľkého zrkadla v predsieni, zastavila sa.</p>
+                <p>V odraze, akoby uvidela niečo, čo tam pred chvíľou vôbec nebolo.</p>
+                <p>Za ňou, v hlbokom tieni, stála silueta.</p>
+                <p>Nebola to jej vlastná. Nebol to tieň nábytku.</p>
+                <p>Bola tenká. Vyššia. A jej obrysy pôsobili neprirodzene ostré.</p>
+                <p>Anna cítila, ako jej po chrbte prebehla vlna husiacej kože.</p>
+                <p>Pomaličky, s búšiacim srdcom, sa otočila.</p>
+                <p>Nikto tam nebol. Iba tma. Iba ticho.</p>
+                <p>No pocit, že nie je sama, pretrvával.</p>
+                <p>Vrátila sa k zrkadlu.</p>
+                <p>Odraz za jej chrbtom bol prázdny.</p>
+                <p>Ale, na jej vlastnej tvári sa zjavil úsmev.</p>
+                <p>Široký. Vycenilý úsmev, ktorý nebol jej.</p>
+                <p>Anna mala ústa pevne zatvorené.</p>
+                <p>Zdesene cúvla. Jej dych sa zrýchlil.</p>
+                <p>No oči nemohla odtrhnúť od zrkadla.</p>
+                <p>Ten úsmev sa prehlboval, a jej odraz pomaly naklonil hlavu nabok.</p>
+                <p>Ako keby ju študoval.</p>
+                <p>Zakryla si ústa rukou, no v zrkadle sa jej odraz stále smial.</p>
+                <p>A teraz, sa oči odrazu začali meniť.</p>
+                <p>Plnili sa čiernou, prázdnou temnotou.</p>
+                <p>A z hĺbky zrkadla, sa ozval tichý, chichotavý zvuk.</p>
+                <p>Zvuk, akoby jej vlastné vnútro opustila temná entita.</p>
+                <p>Anna v tej chvíli vedela jediné.</p>
+                <p>Nie jej dom bol strašidelný.</p>
+                <p>Ale jej vlastný odraz.</p>
+                <p>Odraz, ktorý bol teraz domovom pre niečo iné.</p>
+                <p>A to niečo, ju poznalo až príliš dobre.</p>
             </div>
         </section>
         
@@ -166,30 +217,38 @@
     </div>
 
     <script>
-        const storyTextContainer = document.getElementById('story-text');
-        const voiceSelect = document.getElementById('voice-select');
-        const playButton = document.getElementById('play-btn');
-        const stopButton = document.getElementById('stop-btn');
-        const loadingSpinner = document.getElementById('loading-spinner');
+        const storyTextContainer1 = document.getElementById('story-text-1');
+        const voiceSelect1 = document.getElementById('voice-select-1');
+        const playButton1 = document.getElementById('play-btn-1');
+        const stopButton1 = document.getElementById('stop-btn-1');
+        const loadingSpinner1 = document.getElementById('loading-spinner-1');
+
+        const storyTextContainer2 = document.getElementById('story-text-2');
+        const voiceSelect2 = document.getElementById('voice-select-2');
+        const playButton2 = document.getElementById('play-btn-2');
+        const stopButton2 = document.getElementById('stop-btn-2');
+        const loadingSpinner2 = document.getElementById('loading-spinner-2');
+
         const errorModal = document.getElementById('error-modal');
         const closeModalBtn = document.getElementById('close-modal-btn');
-        let isProcessing = false;
-
         const synth = window.speechSynthesis;
         let voices = [];
 
-        // Funkcia na načítanie hlasov a vyplnenie selectu
+        // Funkcia na načítanie hlasov a vyplnenie selectov
         function populateVoiceList() {
             voices = synth.getVoices();
-            voiceSelect.innerHTML = '<option value="">Predvolený hlas</option>';
-            voices.forEach(voice => {
-                // Zobrazí všetky slovenské hlasy a dva špecifické anglické
-                if (voice.lang.startsWith('sk-') || voice.lang === 'en-US' || voice.lang === 'en-GB') {
-                     const option = document.createElement('option');
-                    option.textContent = `${voice.name} (${voice.lang})`;
-                    option.value = voice.name;
-                    voiceSelect.appendChild(option);
-                }
+            [voiceSelect1, voiceSelect2].forEach(select => {
+                const selectedValue = select.value;
+                select.innerHTML = '<option value="">Predvolený hlas</option>';
+                voices.forEach(voice => {
+                    if (voice.lang.startsWith('sk-') || voice.lang === 'en-US' || voice.lang === 'en-GB') {
+                        const option = document.createElement('option');
+                        option.textContent = `${voice.name} (${voice.lang})`;
+                        option.value = voice.name;
+                        select.appendChild(option);
+                    }
+                });
+                select.value = selectedValue;
             });
         }
         
@@ -203,17 +262,9 @@
             errorModal.style.display = 'none';
         });
 
-        // Prehrávanie celého príbehu po kliknutí na tlačidlo "Čítať"
-        playButton.addEventListener('click', () => {
-            // Zastavenie akéhokoľvek predchádzajúceho čítania, aby sa predišlo chybám "interrupted"
+        // Funkcia na prehrávanie príbehu
+        function playStory(storyTextContainer, voiceSelect, loadingSpinner) {
             synth.cancel();
-
-            if (isProcessing || !synth || synth.speaking) {
-                return;
-            }
-            
-            isProcessing = true;
-            loadingSpinner.classList.remove('hidden');
 
             const fullStoryText = storyTextContainer.textContent.replace(/\n\s+/g, ' ').trim();
             const utterance = new SpeechSynthesisUtterance(fullStoryText);
@@ -226,29 +277,40 @@
                 }
             }
 
+            utterance.onstart = () => {
+                loadingSpinner.classList.remove('hidden');
+            };
+
             utterance.onend = () => {
-                isProcessing = false;
                 loadingSpinner.classList.add('hidden');
             };
 
             utterance.onerror = (e) => {
                 console.error('SpeechSynthesis error:', e.error);
                 errorModal.style.display = 'flex';
-                isProcessing = false;
                 loadingSpinner.classList.add('hidden');
             };
             
             synth.speak(utterance);
+        }
+
+        // Event Listeners pre prvý príbeh
+        playButton1.addEventListener('click', () => playStory(storyTextContainer1, voiceSelect1, loadingSpinner1));
+        stopButton1.addEventListener('click', () => {
+            synth.cancel();
+            loadingSpinner1.classList.add('hidden');
         });
 
-        // Zastavenie čítania po kliknutí na tlačidlo "Zastaviť"
-        stopButton.addEventListener('click', () => {
+        // Event Listeners pre druhý príbeh
+        playButton2.addEventListener('click', () => playStory(storyTextContainer2, voiceSelect2, loadingSpinner2));
+        stopButton2.addEventListener('click', () => {
             synth.cancel();
-            isProcessing = false;
-            loadingSpinner.classList.add('hidden');
+            loadingSpinner2.classList.add('hidden');
         });
     </script>
 </body>
 </html>
+
+
 
 
