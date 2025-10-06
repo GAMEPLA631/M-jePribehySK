@@ -103,7 +103,17 @@
             </h2>
         </section>
 
-        <!-- Sekcia príbehu a ovládanie TTS pre prvý príbeh -->
+        <!-- Age Restriction Control -->
+        <section class="max-w-md mx-auto mt-10 p-6 wix-section text-center">
+            <label for="age-gate" class="text-xl font-semibold block mb-3 text-blue-300">Potvrdenie veku:</label>
+            <select id="age-gate" class="bg-gray-800 text-gray-200 border border-gray-700 rounded-lg py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer">
+                <option value="under18">Mám menej ako 18 rokov</option>
+                <option value="over18">Mám 18 a viac rokov</option>
+            </select>
+            <p id="age-warning" class="mt-3 text-sm text-red-400">Obsah 18+ je skrytý, kým nepotvrdíte svoj vek.</p>
+        </section>
+
+        <!-- Sekcia príbehu 1: Zakliaty Dom -->
         <section class="mt-20 wix-section p-8 md:p-12 max-w-4xl mx-auto">
             <h3 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-8 text-center">Zakliaty Dom</h3>
 
@@ -118,7 +128,7 @@
                 <div id="loading-spinner-1" class="spinner hidden"></div>
             </div>
 
-            <!-- Príbeh - teraz bez klikateľnosti -->
+            <!-- Príbeh 1 -->
             <div id="story-text-1" class="text-lg leading-relaxed text-gray-400 space-y-6">
                 <p>Starý dom na konci ulice stál ticho a hrozivo. Jeho okná, slepé oči, hľadeli na svet s akousi prázdnou, chladnou nenávisťou. Všetci v mestečku o ňom hovorili šeptom. Hovorili o rodine, ktorá tam žila pred sto rokmi a zmizla bez stopy. A hovorili o polnoci.</p>
                 <p>Mladý novinár, Martin, sa rozhodol, že odhalí pravdu. V ten večer si zobral kameru a statív a ticho sa priplazil k domu. Keď vošiel, vzduch bol ťažký a zatuchnutý. Prach sa vznášal v lúčoch Mesiaca, ktoré prenikali cez špinavé okná, a Martin mal pocit, akoby sa každý kút domu na neho pozeral.</p>
@@ -132,7 +142,7 @@
             </div>
         </section>
 
-        <!-- Nová sekcia s druhým príbehom -->
+        <!-- Sekcia príbehu 2: Zrkadlo v predsieni -->
         <section class="mt-20 wix-section p-8 md:p-12 max-w-4xl mx-auto">
             <h3 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-8 text-center">Zrkadlo v predsieni</h3>
 
@@ -147,7 +157,7 @@
                 <div id="loading-spinner-2" class="spinner hidden"></div>
             </div>
 
-            <!-- Druhý príbeh -->
+            <!-- Príbeh 2 -->
             <div id="story-text-2" class="text-lg leading-relaxed text-gray-400 space-y-6">
                 <p>V halloweenskom tichu, keď sa jeseň menila na chladnú, temnú noc, sa stará Anna chystala zhasnúť posledné svetlo vo svojom útulnom domčeku.</p>
                 <p>Vonku svietil spln. No jeho svetlo sa strácalo v prelietavých mrakoch. A tiene stromov, tancovali vo vetre ako živé strašidlá.</p>
@@ -180,6 +190,53 @@
                 <p>Ale jej vlastný odraz.</p>
                 <p>Odraz, ktorý bol teraz domovom pre niečo iné.</p>
                 <p>A to niečo, ju poznalo až príliš dobre.</p>
+            </div>
+        </section>
+
+        <!-- Sekcia príbehu 3: Konštrukti vs. Chiméry (18+) -->
+        <section id="story-section-3" class="mt-20 wix-section p-8 md:p-12 max-w-4xl mx-auto hidden">
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 mb-8">
+                 <h3 class="text-3xl md:text-4xl font-extrabold text-white leading-tight text-center">
+                    Konštrukti vs. Chiméry
+                </h3>
+                <span class="bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg">18+</span>
+            </div>
+
+            <!-- Ovládanie TTS s tlačidlami -->
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                <select id="voice-select-3" class="bg-gray-800 text-gray-200 border border-gray-700 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">Predvolený hlas</option>
+                    <!-- Hlasy budú načítané dynamicky -->
+                </select>
+                <button id="play-btn-3" class="wix-style-btn">Čítať</button>
+                <button id="stop-btn-3" class="wix-style-btn bg-gray-600 hover:bg-gray-700">Zastaviť</button>
+                <div id="loading-spinner-3" class="spinner hidden"></div>
+            </div>
+
+            <!-- Príbeh 3 (Triler) -->
+            <div id="story-text-3" class="text-lg leading-relaxed text-gray-400 space-y-6">
+                <p>Pod lesklým povrchom nášho sveta, v tieňoch medzi pulzujúcimi neónmi a tichými uličkami, prebieha vojna staršia ako samotné mestá. Nie je to vojna krvi a tesákov, ale vojna esencie a vôle. Na jednej strane stoja Konštrukti, bytosti zrodené z čistej logiky, poriadku a nemenných zákonov reality. Ich telá sú manifestáciou dokonalých geometrických vzorcov a ich myseľ je chladným, presným mechanizmom. Ich domovom je skryté mesto Argentum, tichá metropola z kryštálu a svetla, kde emócia je považovaná za nákazu a odchýlka za kacírstvo.</p>
+                <p>Proti nim stoja Chiméry, stvorenia surového, neviazaného chaosu a emócií. Nemajú stálu podobu; ich forma sa neustále mení podľa ich pocitov – hnev im dáva pazúry a tŕne, smútok ich rozpúšťa do tieňov, radosť ich rozžiari prchavým plameňom. Sú nepredvídateľní, divokí a pre Konštruktov predstavujú ultimátnu hrozbu: stratu kontroly.</p>
+                <p>Medzi týmito dvoma extrémami udržiava krehkú rovnováhu elitná jednotka Konštruktov známa ako Kalibrátori. Ich úlohou je loviť a neutralizovať Chiméry, ktoré preniknú príliš blízko k ľudskému svetu a hrozia narušením reality.</p>
+                <h4 class="text-xl font-bold text-white mt-6 mb-3">2. Kalibrátor Kaelen</h4>
+                <p>Kaelen bol dokonalým Kalibrátorom. Každý jeho pohyb bol vypočítaný, každé rozhodnutie bolo výsledkom čistej, nefiltrovanej logiky. Po celé stáročia slúžil Rádu a nikdy nespochybnil jeho doktrínu: Chaos je anomália. Emócia je choroba. Chiméry musia byť odstránené pre zachovanie existencie.</p>
+                <p>Jeho posledná misia bola rutinná: eliminovať mimoriadne silnú Chiméru, ktorá sa prejavovala v industriálnom srdci ľudského mesta. Sledoval jej energetickú stopu, ktorá ho viedla cez opustené sklady a dažďom zmáčané strechy. Očakával besniace monštrum, stelesnenie deštrukcie. To, čo našiel, však otriaslo základmi jeho reality.</p>
+                <p>Našiel Chiméru – ktorej forma v tej chvíli pripomínala tvora z dymu a tichého zúfalstva – ako stojí ochranársky pred mladou ľudskou ženou. Žena, menom Elara, si nebola vedomá prítomnosti ani jedného z nich. Sedela na lavičke a kreslila si do skicára. Chiméra ju neohrozovala. Chránila ju.</p>
+                <h4 class="text-xl font-bold text-white mt-6 mb-3">3. Prasklina v Dogme</h4>
+                <p>Pre Kaelena to bol logický paradox. Prečo by stelesnenie chaosu chránilo krehkú, efemérnu bytosť? Jeho príkazy boli jasné, no pozorovanie bolo v priamom rozpore s predpokladmi. Rozhodol sa konať proti protokolu. Namiesto okamžitej eliminácie začal pozorovať.</p>
+                <p>Zistil, že Elara je iná. V jej prítomnosti sa realita správala zvláštne. Farby boli sýtejšie, zvuky ostrejšie. Bola Rezonátor – človek s podvedomou schopnosťou zosilňovať a harmonizovať obe energie, poriadok aj chaos. Pre Konštruktov bola nebezpečnou anomáliou, ktorá by mohla posilniť Chiméry. Pre Chiméry bola nádejou.</p>
+                <p>Keď sa Kaelen konečne postavil Chimére, nezaútočila. Namiesto revu a násilia sa z jej víriacej formy ozval hlas, telepatický šepot plný bolesti a stáročného smútku. "Nechceme vojnu," prehovorila Chiméra, ktorá sa predstavila ako Lyra. "Chceme sa len vrátiť domov."</p>
+                <p>V tej chvíli dorazili ďalší Kalibrátori. Ich príkazy však neboli zajať Chiméru. Ich primárnym cieľom bola Elara. "Neutralizujte zdroj kontaminácie," zaznel chladný príkaz v Kaelenovej mysli.</p>
+                <h4 class="text-xl font-bold text-white mt-6 mb-3">4. Odhalenie Veľkej Lži</h4>
+                <p>Kaelen stál pred voľbou, na ktorú ho jeho logický tréning nepripravil. Zabiť nevinnú bytosť na základe príkazu, ktorý bol v rozpore s jeho vlastným pozorovaním, alebo ochrániť anomáliu a stať sa zradcom. Po prvýkrát v živote neurobil rozhodnutie založené na logike, ale na niečom inom. Na inštinkte.</p>
+                <p>Obrátil svoje zbrane proti vlastným bratom a po boku Lyry ochránil Elaru. Týmto aktom sa stal vyhnancom. Lyra ich odviedla do úkrytu, do prastarého miesta, ktoré existovalo ešte pred začiatkom vojny. Tam mu odhalila pravdu, ktorá bola v Argentume po tisícročia potláčaná.</p>
+                <p>Konštrukti a Chiméry neboli vždy dva oddelené druhy. Boli jedna bytosť. Bytosť schopná logiky aj emócie, tvorby aj vášne. Prví vodcovia Konštruktov, v túžbe po absolútnej kontrole a večnom poriadku, sa však začali báť nepredvídateľnosti emócií. Násilne od seba oddelili obe zložky svojej existencie. Tých, ktorí si ponechali logiku, nazvali Konštruktmi a vybudovali dokonalé mesto. Tých, ktorí zostali stelesnením emócií, označili za Chiméry, monštrá, a vyhnali ich do exilu reality.</p>
+                <p>Vojna nebola o prežití. Bola to genocída jednej polovice vlastnej duše.</p>
+                <h4 class="text-xl font-bold text-white mt-6 mb-3">5. Nový Účel</h4>
+                <p>Kaelen, ktorého celá existencia bola postavená na lži, stál pred zrúcaninami svojej identity. Nebol strážcom rovnováhy, ale väzenským dozorcom. Jeho ľud nebol vrcholom evolúcie, ale zmrzačenou, neúplnou bytosťou.</p>
+                <p>Elara, Rezonátor, nebola hrozbou. Bola kľúčom. Jej unikátna ľudská esencia mala moc opäť spojiť to, čo bolo rozdelené. Jej prítomnosť mohla vyliečiť ich druh.</p>
+                <p>Pri pohľade na Elaru, ktorá sa rozprávala s Lyrou, ktorej forma sa ustálila do podoby plnej tichej nádeje, Kaelen pochopil svoju novú misiu. Už nebol Kalibrátorom. Bol rebelom. Jeho cieľom už nebolo udržiavať rovnováhu, ale zničiť ju a na jej troskách vybudovať niečo nové. Niečo kompletné.</p>
+                <p>Vojna sa pre neho neskončila. Práve naopak. Skutočná vojna sa ešte len začala. A tentoraz nebojoval za poriadok, ale za pravdu.</p>
             </div>
         </section>
         
@@ -228,6 +285,18 @@
         const playButton2 = document.getElementById('play-btn-2');
         const stopButton2 = document.getElementById('stop-btn-2');
         const loadingSpinner2 = document.getElementById('loading-spinner-2');
+        
+        // Nové pre príbeh 3
+        const storySection3 = document.getElementById('story-section-3');
+        const storyTextContainer3 = document.getElementById('story-text-3');
+        const voiceSelect3 = document.getElementById('voice-select-3');
+        const playButton3 = document.getElementById('play-btn-3');
+        const stopButton3 = document.getElementById('stop-btn-3');
+        const loadingSpinner3 = document.getElementById('loading-spinner-3');
+
+        // Pre funkciu vekového obmedzenia
+        const ageGateSelect = document.getElementById('age-gate');
+        const ageWarning = document.getElementById('age-warning');
 
         const errorModal = document.getElementById('error-modal');
         const closeModalBtn = document.getElementById('close-modal-btn');
@@ -237,7 +306,8 @@
         // Funkcia na načítanie hlasov a vyplnenie selectov
         function populateVoiceList() {
             voices = synth.getVoices();
-            [voiceSelect1, voiceSelect2].forEach(select => {
+            // Pridal som voiceSelect3 do zoznamu
+            [voiceSelect1, voiceSelect2, voiceSelect3].forEach(select => {
                 const selectedValue = select.value;
                 select.innerHTML = '<option value="">Predvolený hlas</option>';
                 voices.forEach(voice => {
@@ -261,6 +331,21 @@
         closeModalBtn.addEventListener('click', () => {
             errorModal.style.display = 'none';
         });
+
+        // Funkcia pre ovládanie vekového obmedzenia
+        function handleAgeGate() {
+            if (ageGateSelect.value === 'over18') {
+                storySection3.classList.remove('hidden');
+                ageWarning.classList.add('hidden');
+            } else {
+                storySection3.classList.add('hidden');
+                ageWarning.classList.remove('hidden');
+            }
+        }
+        
+        // Spustenie funkcie na začiatku a pri zmene
+        ageGateSelect.addEventListener('change', handleAgeGate);
+        handleAgeGate(); // Prvý beh pri načítaní stránky
 
         // Funkcia na prehrávanie príbehu
         function playStory(storyTextContainer, voiceSelect, loadingSpinner) {
@@ -307,9 +392,18 @@
             synth.cancel();
             loadingSpinner2.classList.add('hidden');
         });
+
+        // Event Listeners pre tretí príbeh
+        playButton3.addEventListener('click', () => playStory(storyTextContainer3, voiceSelect3, loadingSpinner3));
+        stopButton3.addEventListener('click', () => {
+            synth.cancel();
+            loadingSpinner3.classList.add('hidden');
+        });
     </script>
 </body>
 </html>
+
+
 
 
 
